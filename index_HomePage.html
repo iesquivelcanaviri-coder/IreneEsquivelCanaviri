@@ -1,0 +1,273 @@
+<!DOCTYPE html> <!-- Declares the document type as HTML5. Helps browsers interpret the page correctly. -->
+<html lang="en"> <!-- Opens the HTML document and sets the language to English for accessibility and SEO -->
+
+<head> <!--Head section: defines metadata, page title, and links to stylesheets -->
+  <meta charset="UTF-8" /> <!--Sets character encoding to UTF-8 to support all major languages and symbols -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--Ensures the page scales correctly on all devices (mobile, tablet, desktop) -->
+  <title>Laugh Lines — The Evolution of Comedy</title> <!--Sets the title shown in the browser tab and search engine previews -->
+  <link rel="stylesheet" href="styles.css" /> <!--Links to the main stylesheet for this specific page's design -->
+  <link rel="stylesheet" href="Assets/Style_ConsistentStylingforAllPages.css"> <!--Links to a shared stylesheet used across multiple pages for consistent styling -->
+</head>
+
+
+<body>
+  <!-- ===================== NAVIGATION ===================== -->
+<nav> <!-- <nav>: Defines the navigation bar, which contains links to other pages or sections of the website -->
+    <!-- Hidden checkbox for toggle -->
+  <div class="logo"> <!--<div>: A generic container used to group elements together for styling or layout. class="logo": Assigns a CSS class named 'logo' so you can style this container in your stylesheet -->
+    <img src="Assets/Images/Logo.Image.png" alt="Comedy Mask Logo" /> <!-- <img>: Embeds an image into the page. src: Specifies the path to the image file. alt: Provides alternative text for screen readers or if the image fails to load -->
+    <div class="text-block"> <!-- Another <div> used to group text elements (heading + paragraph). class="text-block": Lets you apply specific styles to this group of text -->
+  <ul> <!-- <ul>: Creates an unordered list to organize navigation items (usually displayed horizontally or vertically) -->
+    <li><a href="index_HomePage.html">Home</a></li>  <!-- <li>: Represents a single item in the list. <a>: Anchor tag used to create a clickable hyperlink. href="index_HomePage.html": Specifies the destination file for the Home link. Link to the homepage -->
+    <li><a href="History_page1.html">History</a></li> <!-- href="History_page1.html": Points to the page that covers the history of comedy. Link to the history page -->
+    <li><a href="ComedyDiffersAcrossCulturesPage2.html">Comedy Differs Across Cultures</a></li> <!-- href="SocialMediaPage2.html": Leads to a page discussing comedy in social media. Link to the social media page -->
+    <li><a href="SocialMediaPage3.html">Social Media</a></li> <!-- href="NumbersPage3.html": Directs to a page with statistics or numerical insights. Link to the statistics page -->
+  </ul>
+</nav> 
+
+<!-- ===================== HEADER ===================== -->
+<header> <!--<header>: Defines the top section of the webpage, usually used for branding or navigation -->
+  
+      <h1>Welcome to Laugh Lines</h1> <!-- <h1>: The main heading of the page, typically used once per page for SEO and accessibility -->
+      <p class="tagline">The Evolution of Comedy</p> <!-- <p>: Defines a paragraph of text. class="tagline": A custom class to style this specific paragraph differently (e.g., italic, color) -->
+    </div>
+</header> 
+
+
+
+
+  
+  <!-- ===================== MAIN PAGE LAYOUT ===================== -->
+  <main class="page-layout"> <!-- Keep <main> as the top-level landmark for the main page content.
+This container holds both the sidebar and the main content area. -->
+
+
+<!-- ===================== SIDEBAR ===================== -->
+<!-- Wrap main content and sidebar together -->
+<aside class="sidebar"> <!-- <aside>: Represents content that is tangentially related to the main content, like a sidebar or callout box.
+       class="sidebar": A CSS class used to style this section as a sidebar. -->
+ <!-- === Sidebar: Explore the History of Comedy === -->
+  <h2>Explore More</h2> <!-- Main heading for the sidebar section -->
+
+ <!--This <section> element defines a thematic grouping of content.
+- The attribute `aria-labelledby="irish-comedy"` links this section to another element (usually a heading) with the ID "irish-comedy".
+- This improves accessibility by allowing screen readers to announce the section using the referenced heading's text.
+
+ <h3 id="irish-comedy">Irish Comedy History</h3> This is a level-3 heading (h3) used to label a section titled "Irish Comedy History".
+- The attribute `id="irish-comedy"` assigns a unique identifier to this heading.
+- `id` allows this element to be targeted by CSS for styling or by JavaScript for interaction.
+- It also enables linking directly to this section using anchor links (e.g., #irish-comedy).
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Spike_Milligan" target="_blank">Spike Milligan</a></li>  Anglo-Irish comedian known for surreal humor -->
+  <li><a href="https://en.wikipedia.org/wiki/Dave_Allen_(comedian)" target="_blank">Dave Allen</a></li> <!-- Irish satirist known for observational comedy -->
+  <li><a href="https://www.academia.edu/93735090/History_of_Comedy_of_Humours" target="_blank">History of Comedy of Humours (PDF)</a></li> <!-- Academic paper on humor traditions -->
+  <li><a href="https://www.researchgate.net/publication/357438489_Identifying_humor_in_stand-up_comedy_A_preliminary_study" target="_blank">Stand-Up Comedy Analysis (ResearchGate)</a></li> <!-- Study on humor in stand-up performance -->
+</ul>
+
+<h3 id="ancient">Ancient Comedy</h3> <!-- Subheading for early comedic traditions -->
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Ancient_Greek_comedy" target="_blank">Greek Comedy</a></li> <!-- Overview of Ancient Greek comedy -->
+  <li><a href="https://en.wikipedia.org/wiki/Old_Comedy" target="_blank">Old Comedy (Aristophanes)</a></li> <!-- Focus on Aristophanes and satirical plays -->
+  <li><a href="https://en.wikipedia.org/wiki/New_Comedy" target="_blank">New Comedy (Menander)</a></li> <!-- Focus on Menander and domestic themes -->
+</ul>
+
+<h3 id="renaissance">Renaissance & Shakespearean Comedy</h3>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Shakespearean_comedy" target="_blank">Shakespearean Humor</a></li> <!-- Comedic elements in Shakespeare's plays -->
+  <li><a href="https://en.wikipedia.org/wiki/Commedia_dell%27arte" target="_blank">Commedia dell'Arte</a></li> <!-- Italian improvisational theater tradition -->
+</ul>
+ 
+<h3 id="vaudeville">19th & Early 20th Century Comedy</h3>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Vaudeville" target="_blank">Vaudeville Era</a></li> <!-- Variety entertainment popular in the U.S. -->
+  <li><a href="https://en.wikipedia.org/wiki/Burlesque" target="_blank">Burlesque Theater</a></li> <!-- Satirical and risqué stage performances -->
+  <li><a href="https://en.wikipedia.org/wiki/Silent_film" target="_blank">Silent Film Comedy</a></li> <!-- Physical comedy in early cinema -->
+</ul>
+
+<h3 id="modern">Modern Comedy</h3>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Stand-up_comedy" target="_blank">Modern Stand-Up</a></li> <!-- Solo performance comedy -->
+  <li><a href="https://en.wikipedia.org/wiki/Sitcom" target="_blank">Television Sitcoms</a></li> <!-- Scripted comedic TV shows -->
+  <li><a href="https://en.wikipedia.org/wiki/Sketch_comedy" target="_blank">Sketch Comedy</a></li> <!-- Short comedic scenes or skits -->
+  <li><a href="https://en.wikipedia.org/wiki/Improvisational_theatre" target="_blank">Improv Comedy</a></li> <!-- Unscripted, spontaneous performance comedy -->
+  </ul>
+</aside>
+
+
+
+<!-- ===================== MAIN CONTENT AREA ===================== -->
+<section class="main-content">
+
+ <!-- Joke of the Day -->
+<section class="joke-of-day">
+  <h2>Joke of the Day</h2>
+  <div class="joke-content">
+    <div class="joke-text">
+      <p class="setup">Why don’t scientists trust atoms?</p>       <!-- added class -->
+      <p class="punchline">Because they make up everything!</p>  <!-- added class -->
+    </div>
+    <img src="Assets/Images/jokes-about-historians_row-1-column-1.jpg" 
+     alt="Joke about historians" 
+     class="joke-image">
+
+  </div>
+</section>
+
+
+  <!-- Irish Comedy History (Two-Column Block) -->
+  <section class="irish-comedy-history">
+    <h2>Irish Comedy History</h2>
+    
+    <div class="joke-content two-column-layout">
+
+      <!-- Column 1: Text Articles -->
+      <div class="column column-left">
+        <article class="topic">
+          <h3>Gaelic Satire and Oral Traditions</h3>
+          <p>Irish comedy has ancient roots in bardic satire and storytelling. In medieval Gaelic society, poets known as "filí" used satire to mock kings and nobles, often wielding humor as a form of social control. These oral traditions laid the foundation for Ireland’s enduring wit and narrative style. Learn more on <a href="https://en.wikipedia.org/wiki/Satire_in_Ireland" target="_blank">Wikipedia: Satire in Ireland</a>.</p>
+         </article>
+
+        <article class="topic">
+          <h3>19th Century – Literary Wit and Oscar Wilde</h3>
+          <p>Oscar Wilde, one of Ireland’s most celebrated writers, revolutionized comedic literature with his sharp wit and satirical plays. His works, such as <em>The Importance of Being Earnest</em>, exemplify Irish humor’s elegance and irony. Wilde’s legacy continues to influence global comedy. Explore his impact on <a href="https://en.wikipedia.org/wiki/Oscar_Wilde" target="_blank">Wikipedia: Oscar Wilde</a>.</p>
+        </article>
+
+        <article class="topic">
+          <h3>20th Century – Stage, Radio, and Variety Acts</h3>
+          <p>Irish comedy flourished in the early 20th century through stage performers like Jimmy O'Dea and Maureen Potter. Their blend of slapstick and satire entertained audiences across Ireland. Radio sketches and variety shows helped popularize comedic storytelling. Discover more in the <a href="https://www.irishplayography.com/" target="_blank">Irish Playography Archive</a>.</p>
+        </article>
+
+                <article class="topic">
+          <h3>1990s – The Rise of Irish Sitcoms</h3>
+          <p><em>Father Ted</em>, created by Graham Linehan and Arthur Mathews, became a cultural phenomenon in the 1990s. The sitcom satirized Irish Catholicism and rural life, blending absurdity with social critique. It remains a cornerstone of Irish television comedy. Read more on <a href="https://en.wikipedia.org/wiki/Father_Ted" target="_blank">Wikipedia: Father Ted</a>.</p>
+        </article>
+      </div>
+
+      <!-- Column 2: More Articles + Image -->
+      <div class="column column-right">
+
+
+        <article class="topic">
+          <h3>2000s–Present – Stand-Up and Global Reach</h3>
+          <p>Contemporary Irish comedians like Dara Ó Briain, Tommy Tiernan, and Aisling Bea have brought Irish humor to international audiences. Their stand-up routines combine observational comedy with cultural commentary. The Irish comedy scene continues to thrive in festivals and global media. Learn more from <a href="https://en.wikipedia.org/wiki/Stand-up_comedy" target="_blank">Wikipedia: Stand-Up Comedy</a> and <a href="https://comeheretome.com/2012/01/09/the-early-days-of-dublin-stand-up/" target="_blank">Come Here To Me: Dublin Stand-Up Origins</a>.</p>
+        </article>
+
+        <img src="Assets/Images/Evolution of Comedy in Ireland.png" alt="Evolution of Comedy in Ireland" class="comedy-image" width="300">
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+<!-- General Comedy History (Did You Know Section) -->
+<section class="general-comedy-history">
+  <h2 class="section-title">General Comedy History</h2>
+  <div class="carousel-container">
+    <h3 class="fact-title">Did You Know?</h3>
+
+   <div class="carousel-scroll">
+        <div class="fact-card">
+          <strong>🎭 Ancient Laughs:</strong> Around 425 BCE, Aristophanes, often called the “Father of Comedy,” wrote plays that satirized Athenian society. His works like <em>The Clouds</em> mocked philosophers such as Socrates, while <em>Lysistrata</em> used humor to protest war. These plays were performed during public festivals like the Dionysia, blending entertainment with civic critique — a tradition that shaped political satire for centuries.
+        </div>
+        <div class="fact-card">
+          <strong>📜 Shakespeare’s Twist:</strong> In the late 16th and early 17th centuries, William Shakespeare redefined comedy in the English Renaissance. Unlike modern stand-up, “comedy” then referred to plays with happy endings, often involving marriage and reconciliation. Works like <em>Twelfth Night</em> and <em>Much Ado About Nothing</em> used clever wordplay, disguise, and romantic confusion — laying the foundation for today’s romantic comedies.
+        </div>
+        <div class="fact-card">
+          <strong>🎭 Masked Mayhem:</strong> Commedia dell’Arte emerged in Italy during the 1500s as a form of street theater. It featured masked characters like Harlequin and Pantalone, each representing social archetypes. Performers improvised dialogue and physical comedy based on loose scenarios, influencing European theater and later comedic forms like pantomime, sketch comedy, and sitcoms.
+        </div>
+        <div class="fact-card">
+          <strong>🎤 Vaudeville Roots:</strong> Vaudeville dominated American entertainment from the 1880s to the 1930s. It was a live variety format that included comedy, music, dance, and novelty acts. Stars like Buster Keaton and the Marx Brothers began here, and its structure — short, punchy segments — directly influenced the pacing and style of modern television comedy.
+        </div>
+        <div class="fact-card">
+          <strong>🎬 Silent Legends:</strong> In the early 20th century, silent film comedians like Charlie Chaplin and Buster Keaton mastered visual storytelling. Without dialogue, they relied on exaggerated gestures, slapstick routines, and expressive facial acting. Their films, such as <em>The Kid</em> and <em>The General</em>, proved that humor could transcend language and culture — a principle still true in visual comedy today.
+        </div>
+        <div class="fact-card">
+          <strong>📺 TV Revolution:</strong> Premiering in 1951, <em>I Love Lucy</em> transformed television comedy. It introduced the three-camera setup, live studio audience, and laugh track — techniques still used in sitcoms today. Lucille Ball’s physical humor and timing set a new standard for female comedians, and the show’s success helped establish comedy as a central genre in American TV.
+        </div>
+        <div class="fact-card">
+          <strong>🌐 Digital Comedy:</strong> Since the early 2000s, platforms like YouTube, Vine, and TikTok have democratized comedy. Anyone with a smartphone can create and share sketches, parodies, and memes. This shift from stage to screen to scroll has redefined comedic timing, audience interaction, and the role of humor in everyday life — making digital comedy a global phenomenon.
+        </div>
+      
+        <div class="fact-card">
+        <strong>🎭 The Comic Purpose:</strong> Comedy has long acted as a moral mirror. Aristotle saw it as a way to expose human folly, 
+        while Henri Bergson described laughter as a “social corrective” that nudges individuals 
+        back toward social norms.
+      </div>
+
+        <div class="fact-card">
+          <strong>🎙️ Stand-Up’s Roots & Vaudeville Legacy:</strong> Mark Twain’s 1866 touring show foreshadowed modern stand-up. Early vaudeville performers 
+          developed the 10–15 minute solo act, establishing timing, persona, and direct audience 
+          address as core parts of the craft.
+        </div>
+
+        <div class="fact-card">
+          <strong>🗽 Breaking Boundaries & Free Speech:</strong> Lenny Bruce’s obscenity trials and George Carlin’s landmark <em>Seven Words</em> case 
+          reshaped free expression in comedy, paving the way for today’s political satire 
+          and boundary-pushing stand-up.
+        </div>
+
+        <div class="fact-card">
+          <strong>🧠 The Science of Laughter:</strong> Laughter activates more than 15 facial muscles and triggers the release of endorphins— 
+          demonstrating that humor has real physiological benefits. It is also the only emotional 
+          reflex reliably triggered by thought alone.
+        </div>
+
+        <div class="fact-card">
+          <strong>⚡ Comedy’s Dark Side:</strong> From Aristotle to Hobbes, philosophers noted comedy’s cruel edge—our tendency to laugh 
+          at misfortune. Hobbes called this impulse “sudden glory,” highlighting comedy’s tension 
+          between empathy and superiority.
+        </div>
+
+        <div class="fact-card">
+          <strong>🎰 Behind the Curtain — The Mob Connection:</strong> For much of the 20th century, organized crime controlled many American nightclubs, 
+          shaping who got stage time and what material was considered acceptable. 
+          These venues both nurtured and constrained early comedy careers.
+        </div>
+
+        <div class="fact-card">
+          <strong>🌏 Comedy Goes Global:</strong> Historic traditions like India’s <em>Chakyar Koothu</em> and Japan’s <em>Kyōgen</em> 
+          show comedy’s ancient cultural roots. In the streaming era, platforms like YouTube 
+          and TikTok have made humor borderless, allowing global audiences to connect instantly.
+        </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+  <!-- ==========================================================
+       FOOTER AREA
+  =========================================================== -->
+  <footer class="site-footer"> <!-- Father container for footer -->
+    <div class="footer-content">
+
+      <div class="footer-links"> <!-- Child container for contact info -->
+        <a href="contact.html">Contact</a>
+        <a href="mailto:someuser@gmail.com">Email: someuser@gmail.com</a>
+        <a href="tel:+353123456789">Phone: +353 123 456 789</a>
+      </div>
+
+      <div class="social-links"> <!-- Child container for icons -->
+        <a href="https://www.facebook.com" target="_blank">
+          <img src="Assets/Images/facebook.webp" alt="Facebook Logo">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+          <img src="Assets/Images/instagram.webp" alt="Instagram Logo">
+        </a>
+        <a href="https://x.com" target="_blank">
+          <img src="Assets/Images/Twitter.webp" alt="Twitter Logo">
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+
+</body>
+</html>

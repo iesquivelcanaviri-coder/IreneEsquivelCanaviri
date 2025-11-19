@@ -1,0 +1,750 @@
+/* ============================================================
+   1. GLOBAL STYLING (Applies to All Pages)
+===============================================================*/
+
+body { /* <body>: the root container for ALL visible page content */
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; /* sets the default font for entire site */
+  background-color: #030303; /* sets black background of whole page */
+  margin: 0; /* removes browser’s default outer margin */
+  padding: 0; /* removes browser’s default padding */
+  color: #fff; /* make all text white */
+  border-color: #444; /* keeps border styling consistent */
+  line-height: 1.7; /* sets vertical spacing between lines of text */
+}
+
+a { /* <a>: interactive hyperlinks */
+  text-decoration: none; /* removes the default underline */
+  color: inherit; /* makes links adopt the surrounding text color */
+}
+
+ul { /* <ul>: unordered list container (bulleted list) */
+  list-style: none; /* removes default bullets */
+  padding: 0; /* removes default left indentation */
+  margin: 0; /* removes default margin above & below list */
+}
+
+img { /* <img>: image element */
+  max-width: 100%; /* prevents images from growing beyond their container */
+  height: auto; /* keeps aspect ratio while resizing */
+  display: block; /* removes the small gap under images caused by inline display */
+}
+
+
+
+/* ────────────────────────────────────────────────
+   2. NAVIGATION
+──────────────────────────────────────────────── */
+
+.logo img { /* targets <img> inside element with class="logo" */
+  width: 7vw; /* scales logo relative to viewport width (more responsive) */
+  margin: 0; /* removes default spacing around the image */
+}
+
+.logo { /* container that holds the logo and optional tagline */
+  display: flex; /* places children (logo + text) in a horizontal row */
+  align-items: center; /* vertically centers items inside the flexbox */
+  gap: 2%; /* space between logo and text block */
+  padding: 1% 1% 0 1%; /* top/right/bottom/left padding */
+  background-color: #fff; /* sets white background behind logo */
+  border-bottom: 0.2rem solid #e0e0e0; /* keeps thin border consistent */
+}
+
+.text-block { /* container for small text under logo */
+  flex: 1; /* stretches to fill leftover horizontal space */
+  text-align: center; /* horizontally centers the text */
+  font-size: 1vw; /* fluid, readable text size */
+  color: #fff; /* corrected duplicated color property */
+}
+
+nav { /* <nav>: semantic HTML element for site navigation */
+  position: fixed; /* keeps nav bar stuck to the top of the screen */
+  top: 0; /* positions it at the top of the page */
+  left: 50%; /* used for centering with transform */
+  transform: translateX(-50%); /* perfect horizontal centering */
+  width: 100%; /* makes nav bar full width */
+  background-color: #111; /* darker background to match dark mode */
+  z-index: 1000; /* ensures navigation bar stays on top of everything */
+  border-bottom: 0.15rem solid #444; /* small border under nav bar */
+  text-align: center; /* centers content inside nav */
+}
+
+nav ul { /* targets <ul> inside the nav bar */
+  display: flex; /* lays out menu items horizontally */
+  justify-content: center; /* centers menu items */
+  gap: 3vw; /* horizontal space between each link */
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  margin: 0 auto; /* centers the menu block */
+  width: fit-content; /* makes width equal to content width */
+}
+
+nav li { /* list item containing each link */
+  text-align: center; /* centers text inside the <li> */
+}
+
+nav a { /* styles all links inside the nav bar */
+  padding: 1.5vh 3vw; /* fully fluid clickable area */
+  background-color: #222; /* darker for dark theme */
+  border: 0.15rem solid #555; /* consistent dark border */
+  border-radius: 1vw; /* rounded button edges with fluid unit */
+  font-size: 1.6vw; /* responsive font size */
+  transition: background 0.3s, color 0.3s; /* smooth hover animation */
+}
+
+nav a:hover { /* hover state for nav links */
+  background-color: #333; /* darkens background on hover */
+}
+
+nav a.active { /* active link style */
+  background-color: #444; /* darker background */
+  font-weight: bold; /* bold text for emphasis */
+}
+
+@media (max-width: 60em) { /* triggered on screens < 960px */
+  nav a { font-size: 2.5vw; } /* increase text size for readability */
+}
+
+@media (max-width: 30em) { /* triggered on screens < 480px */
+  nav ul { flex-direction: column; } /* menu links stack vertically */
+  nav a {
+    width: 70%; /* buttons stretch wider for easier tapping */
+    font-size: 4vw; /* larger text for readability on phones */
+  }
+}
+
+
+
+/* ────────────────────────────────────────────────
+   2. HEADER SECTION
+──────────────────────────────────────────────── */
+
+header { /* <header>: top section of the page containing h1 + tagline */
+  padding: 0; /* removes default extra spacing inside header */
+  margin: 0.5vh; /* fluid margin instead of px */
+  width: 100%; /* makes header span full width of page */
+}
+
+header h1 { /* styles the main heading (<h1>) inside header */
+  margin: 0; /* removes default top/bottom spacing of h1 */
+  font-size: 3vw; /* fully fluid heading size */
+  line-height: 1.2; /* keeps text tight */
+  font-weight: bold; /* strong headline */
+  font-style: italic; /* gives title a stylish italic look */
+  padding-top: 11vh; /* more natural top spacing for responsiveness */
+  padding-bottom: 0; /* no extra space below */
+  text-align: center; /* centers the heading horizontally */
+}
+
+.tagline { /* styles the <p> element with class="tagline" under the h1 */
+  display: block; /* ensures tagline behaves like a block element */
+  font-style: italic; /* italic text for stylistic effect */
+  color: #ffffff; /* sets tagline text color to white */
+  font-size: 2.5vw; /* fully responsive tagline size */
+  text-align: center; /* centers tagline horizontally */
+  padding: 0; /* removes inside padding */
+  margin: 0; /* removes default margins */
+}
+
+/*========================================================================================================================================================================================================================*/
+/* ────────────────────────────
+HOME PAGE LAYOUT
+──────────────────────────────────────────────── */
+/* Page layout */
+.page-layout { /* wrapper around sidebar + main content */
+  display: grid; /* enables CSS Grid for multi-column layout */
+  grid-template-columns: 13% 1fr; /* creates 2 columns: sidebar 13%, main takes rest */
+  gap: 0; /* no spacing between the two grid columns */
+  min-height: 100vh; /* ensures page is at least full screen height */
+}
+
+/* Sidebar */
+.sidebar { /* left sidebar with comedy history links */
+  position: sticky; /* keeps sidebar visible as you scroll */
+  top: 2vh; /* sticks the sidebar 2% from the top of the screen */
+  height: fit-content; /* sidebar height grows ONLY as needed */
+  margin: 0; /* removes default outer spacing */
+  padding: 2%; /* inner spacing for breathing room */
+  padding-top: 5%; /* adds extra space above content */
+  border: 0.1rem solid #ccc; /* thin border around sidebar */
+  border-radius: 1rem; /* rounded corners */
+  background-color: #f9f9f9; /* light background */
+  box-shadow: 0 0.3rem 1rem rgba(0,0,0,0.05); /* subtle shadow for depth */
+  box-sizing: border-box; /* includes padding/border in total width */
+}
+
+/* Sidebar headings */
+.sidebar h2 { /* larger main heading inside sidebar */
+  margin: 0; /* removes default margins */
+  padding-bottom: 3%; /* adds spacing under the heading */
+  font-size: 1.8vw; /* responsive heading size */
+  color: #222; /* dark grey text */
+}
+
+.sidebar h3 {
+  margin: 0;              /* reset all margins */
+  margin-top: 1rem;       /* space before heading */
+  margin-bottom: 0;       /* no space after heading */
+  font-size: 1.3vw;       /* responsive size */
+  color: #222;            /* dark grey text */
+  line-height: 1.2;       /* controls spacing between lines inside h3 */
+}
+
+
+/* Sidebar list */
+.sidebar ul { /* removes default list styling */
+  margin: 0; /* no spacing above/below */
+  padding-bottom: 3%; /* spacing below each list section */
+  list-style: none; /* removes bullets */
+}
+.sidebar li { /* list item in sidebar */
+  margin: 0; /* no vertical spacing */
+  padding: 0; /* no inner padding */
+  line-height: 1.3; /* improves readability */
+}
+
+
+/* Sidebar links */
+.sidebar a { /* styles all links in the sidebar */
+  display: block; /* makes the entire line clickable */
+  margin: 0; /* removes spacing */
+  padding: 0; /* removes inner spacing */
+  line-height: 1.3; /* improves readability */
+  text-decoration: none; /* removes underline */
+  color: blue; /* default blue link color */
+  transition: color 0.3s ease; /* smooth hover transition */
+}
+
+.sidebar a:hover { color: #0000cc; } /* darker blue on hover */
+.sidebar a:visited { color: purple; } /* visited links turn purple */
+
+/* ____TABLET DEVICES ___ */
+@media (max-width: 60em) { /* activates when screen < 960px */
+  .sidebar h2 { font-size: 4vw; } /* bigger text for readability */
+  .sidebar h3 { font-size: 3.5vw; }
+}
+
+@media (max-width: 30em) { /* activates when screen < 480px */
+  .page-layout { display: block; } /* grid collapses → stacked layout */
+  .sidebar { display: none; } /* hide sidebar on very small screens */
+}
+
+/* ───────────── MAIN CONTENT AREA  ──────────────────────────────────── */
+.main-content { /* container for the entire main content section */
+  flex: 1; /* allows content to grow and take available space if needed */
+  border: none; /* removes borders if any were inherited */
+  border-radius: 1rem; /* slightly rounded corners (cosmetic only) */
+  background-color: #000; /* black background behind all homepage blocks */
+  padding: 0; /* removes internal spacing */
+  margin: 0; /* removes external spacing */
+  box-sizing: border-box; /* ensures padding & borders are included in width */
+}
+
+/* ───────────────────HOME PAGE: Joke of the Day ──────────────────────────────── */
+
+/* Joke of the day */
+.joke-of-day { /* outer card that wraps the joke text + image */
+  border: 0.15rem solid #ccc; /* adds a thin grey border */
+  border-radius: 1rem; /* smooth rounded corners for card look */
+  background-color: #f9f9f9; /* light background for contrast */
+  padding: 2%; /* inner spacing around all content */
+  width: 90%; /* takes up 90% of the main-content width */
+  margin: 0 auto 2% auto; /* centers block + adds space below */
+  padding-left: 0%; /* removes left padding for cleaner alignment */
+  margin-left: 0%; /* ensures alignment with other blocks */
+}
+
+.joke-of-day h2 { /* section title "Joke of the Day" */
+  font-size: 3vw; /* responsive font size (bigger on large screens) */
+  margin: 0; /* removes extra spacing above/below */
+  text-align: center; /* centers the title horizontally */
+}
+
+.joke-content { /* wrapper for text + image */
+  display: flex; /* places text and image side by side */
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  gap: 0; /* no gap between children unless screen wraps */
+}
+
+.joke-text { /* container holding the setup + punchline */
+  flex: 1 1 60%; /* takes majority of width but can shrink */
+  min-width: 50%; /* never collapses below half width */
+  color: #fff; /* sets joke text to white */
+  text-align: left; /* aligns paragraphs to the left */
+  padding: 2%; /* spacing around text */
+}
+.joke-text p { /* paragraph styling for joke text */
+  margin: 2% 0; /* consistent spacing above/below each line */
+}
+
+.joke-text p.setup { /* first line of the joke */
+  font-size: 2vw; /* slightly smaller font size */
+  text-align: left; /* keeps consistent alignment */
+}
+
+.joke-text p.punchline { /* punchline of the joke */
+  font-size: 2.5vw; /* larger font size for impact */
+  font-weight: 700; /* bold for dramatic punchline effect */
+  text-align: left; /* aligned left for readability */
+}
+
+.joke-image { /* image that appears beside the joke text */
+  flex: 0 0 auto; /* image keeps natural size; doesn’t stretch */
+  width: 25%; /* image takes up about 1/4 of content width */
+  margin-left: 2%; /* small spacing between image and text */
+}
+
+
+/* ─────────────  IRISH COMEDY HISTORY (Two Columns) ──────────────────────────────── */
+
+/* ─────────────  IRISH COMEDY HISTORY (Two Columns) ──────────────────────────────── */
+
+/* Irish comedy history */
+.irish-comedy-history { /* full block wrapping both columns */
+  border: 0.15rem solid #ccc; /* light border around the section */
+  border-radius: 1rem; /* smooth rounded corners */
+  background-color: #f9f9f9; /* light background to contrast with black page */
+  padding: 2%; /* inner spacing around all content */
+  width: 90%; /* takes up most of the main content's width */
+  margin: 0 auto 2% auto; /* centers the block + adds spacing below */
+  padding-left: 0%; /* aligns content flush on the left */
+  margin-left: 0%; /* ensures alignment with other homepage blocks */
+}
+
+.irish-comedy-history h2 { /* main title of this section */
+  font-size: 3vw; /* large responsive heading size */
+  text-align: center; /* centers the heading */
+}
+
+.irish-comedy-history h3 { /* subheadings inside article blocks */
+  font-size: 2vw; /* smaller than h2 but still responsive */
+}
+
+.two-column-layout { /* container holding left + right column */
+  display: flex; /* places the two columns side by side */
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.column { /* each half of the two-column layout */
+  flex: 1 1 50%; /* each column takes 50% of the width */
+  min-width: 50%; /* prevents shrinking too small */
+}
+
+/* Mobile adjustments */
+@media (max-width: 60em) { /* screens under 960px */
+  .irish-comedy-history h2 { font-size: 5vw; } /* bigger heading for readability */
+  .irish-comedy-history h3 { font-size: 4vw; } /* bigger subheadings */
+  .column { min-width: 100%; } /* each column becomes full width */
+}
+
+
+
+/* ──────────────  GENERAL COMEDY HISTORY — FACT CAROUSEL ──────────────────────────────────────────────── */
+/* Did you know carousel */
+.general-comedy-history { /* wraps entire "Did You Know?" area */
+  border: 0.15rem solid #ccc; /* thin grey border around section */
+  border-radius: 1rem; /* smooth rounded edges */
+  background-color: #f9f9f9; /* light background for readability */
+  padding: 2%; /* spacing inside the container */
+  width: 90%; /* takes up most of the page width */
+  margin: 0 auto 2% auto; /* center horizontally + add bottom spacing */
+  padding-left: 0%; /* aligns text nicely on the left */
+  margin-left: 0%; /* keeps alignment consistent with other cards */
+}
+
+.section-title { /* large heading "General Comedy History" */
+  font-size: 3vw; /* responsive font size */
+  text-align: center; /* center the heading */
+}
+
+.fact-title { /* smaller subtitle above the scroll area */
+  font-size: 2.2vw; /* responsive sizing */
+  text-align: center; /* centered for emphasis */
+}
+
+.carousel-scroll { /* container that scrolls horizontally */
+  display: flex; /* lays out cards side by side */
+  gap: 2%; /* spacing between each fact card */
+  overflow-x: auto; /* enables horizontal scrolling */
+  padding: 2%; /* spacing inside scroll area */
+  scroll-snap-type: x mandatory; /* cards snap into place when scrolling */
+}
+
+.fact-card { /* each individual yellow card */
+  width: 30%; /* takes up 30% of container width */
+  min-width: 30%; /* ensures cards stay large enough when scrolling */
+  padding: 2%; /* internal spacing for text */
+  border-radius: 1rem; /* rounded corners */
+  background-color: #FFD966; /* warm yellow background */
+  scroll-snap-align: center; /* snaps each card to center of screen */
+  transition: transform 0.3s ease; /* smooth hover animation */
+}
+
+.fact-card:hover { /* when user hovers over a card */
+  transform: scale(1.05); /* card gently grows larger */
+  background-color: #FFB347; /* slightly darker orange/yellow */
+}
+
+
+/* ──────────────────────FOOTER (All Pages)─────────────────────────────────────── */
+
+
+.site-footer { /* main footer container */
+  background-color: transparent; /* no background so black body shows through */
+  border-top: 0.15rem solid #ccc; /* light grey line separating footer from content */
+  padding: 2% 0; /* vertical spacing inside footer */
+  text-align: center; /* centers all text and elements horizontally */
+  width: 100%; /* makes footer stretch full width */
+  margin: 0 auto; /* ensures centered on all screen sizes */
+  box-sizing: border-box; /* ensures padding doesn't break layout width */
+}
+
+.footer-content { /* wrapper around links + icons */
+  display: flex; /* enables flexible layout for children */
+  flex-direction: column; /* stacks children vertically */
+  align-items: center; /* centers all items horizontally */
+  gap: 1.5vw; /* responsive spacing between items */
+  padding: 0 5%; /* horizontal breathing room */
+}
+
+
+/* Main Footer Headings (if used)*/
+.site-footer h2 { /* larger footer heading */
+  font-size: 2.5vw; /* responsive size */
+}
+.site-footer h3 { /* smaller footer subheading */
+  font-size: 1.6vw; /* responsive size */
+}
+
+.footer-links { /* container for contact links list */
+  display: flex; /* places links in a flexible layout */
+  flex-direction: column; /* each link appears on its own line */
+  gap: 0.5vw; /* small vertical spacing between links */
+  font-size: 1.2vw; /* responsive text size */
+}
+
+.social-links { /* wrapper for Facebook/Instagram/Twitter icons */
+  display: flex; /* places icons horizontally */
+  justify-content: center; /* centers icons */
+  gap: 2vw; /* horizontal spacing between icons */
+  flex-wrap: wrap; /* icons wrap neatly if screen feels tight */
+}
+
+/* Social Media Icon Styling */
+.social-links img { /* actual icons */
+  width: 4vw; /* responsive width based on viewport */
+  height: 4vw; /* responsive height */
+  transition: transform 0.2s ease; /* smooth animation on hover */
+}
+
+/* ----- Hover Effect: Icons Grow Slightly ----- */
+.social-links img:hover {
+  transform: scale(1.1); /* makes icon grow 10% bigger on hover */
+}
+
+/*  MOBILE ADJUSTMENTS */
+@media (max-width: 48em) { /* triggered on tablets + phones (48em ≈ 768px) */
+  .social-links img {
+    width: 5vw; /* slightly bigger icons for touch interaction */
+    height: 6vw; /* adjusted proportion */
+  }
+  .site-footer h2 {
+    font-size: 1.6em; /* larger, more readable text */
+  }
+  .site-footer h3 {
+    font-size: 1.1em; /* readable subheading */
+  }
+}
+
+
+/*========================================================================================================================================================================================================================*/
+/* PAGE 1 – HISTORY PAGE
+──────────────────────────────────────────────── */
+/* ─────────────────────────────────
+   1. Overall History Page Wrapper
+   .history-page = any HTML element with class="history-page"
+   (Parent container for the entire history page content)
+───────────────────────────────── */
+.history-page {  /* .history-page → main wrapper around all history content */
+  padding: 2% 4%;                     /* inner spacing: 2% top/bottom, 4% left/right (creates breathing room inside the box) */
+  background-color: #000;             /* sets the background of the wrapper to black */
+  border-radius: 0.8rem;              /* slightly rounds the corners of the wrapper */
+  margin-bottom: 2%;                  /* adds space below the wrapper to separate it from the footer/next section */
+  box-sizing: border-box;             /* tells the browser to include padding & border in the total width/height (helps consistent layout) */
+}
+
+/* ──────────────────2. Page Intro Section (Intro block at the top of the page)────────────────── */
+.page-intro { /* .page-intro = intro card at top of history page */
+  background-color: #f9f9f9; /* white/grey background for contrast against black page */
+  border: 0.15rem solid #ccc; /* subtle grey border giving definition */
+  border-radius: 0.8rem; /* rounded corners for card look */
+  padding: 1%; /* spacing inside card so text isn't touching edges */
+  margin-bottom: 1%; /* spacing under card before next section */
+  max-width: 100%; /* replaces fixed px with % for responsiveness */
+  box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.05); /* faint shadow for depth */
+  font-size: 1.2rem; /* sets readable base text size for intro */
+  color: #000; /* ensures text is black and easy to read */
+  text-align: left; /* aligns text on left side */
+  box-sizing: border-box; /* prevents width distortion from padding */
+  padding-top: 0%;
+  margin-top: 0%;
+}
+
+
+/* ──────────3. Period Section (Article Blocks) (Each historical period block styled like a card)────────────────────── */
+.period-section { /* .period-section = each 'card' for a historical period */
+  background-color: #f9f9f9; /* light card background for readability */
+  border: 0.15rem solid #ccc; /* soft grey border */
+  border-radius: 0.8rem; /* slightly rounded corners for card effect */
+  padding: 2%; /* inner spacing so text has breathing room */
+  margin: 0 auto 2%; /* centers the card horizontally + space below */
+  box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.05); /* subtle shadow giving floating effect */
+  box-sizing: border-box; /* ensures padding doesn’t break layout */
+}
+
+/* Father → Child: headings inside .period-section */
+/* -------- Headings INSIDE .period-section -------- */
+.period-section h3 { /* h3 = major subheading inside card */
+  margin: 0 0 0.5rem 0; /* no top margin, small bottom spacing */
+  font-size: 2vw; /* responsive size instead of px */
+  color: #222; /* dark grey text for strong readability */
+}
+
+.period-section h4 { /* h4 = subsection headings inside card */
+  margin-top: 3vw; /* responsive spacing */
+  margin-bottom: 0; /* no bottom spacing for tight grouping */
+  font-size: 1.8vw; /* responsive size */
+  color: #333; /* medium grey text */
+}
+
+.period-section h5 { /* h5 = small headers inside card */
+  margin-top: 2vw; /* responsive spacing */
+  margin-bottom: 0; /* no space below */
+  font-size: 1.5vw; /* responsive size */
+  color: #444; /* lighter grey for visual hierarchy */
+}
+
+.period-section p { /* paragraph text inside period cards */
+  margin: 2% 0; /* spacing above and below paragraphs */
+  line-height: 1.6; /* increases readability with taller lines */
+  color: #222; /* dark grey text */
+  font-size: 1.3vw; /* converted from px → vw */
+}
+
+
+
+/* ────────────────4. Floated Images (Images floated to the right inside sections)───────────────────────────── */
+.float-image { /* .float-image = image that text wraps around */
+  float: right; /* moves the image to the right, text flows around it */
+  margin: 0 0 2% 3%; /* responsive spacing */
+  max-width: 30%; /* replaces 300px with % for responsiveness */
+  border-radius: 0.8rem; /* subtle rounded corners for modern look */
+}
+
+
+/* ──────────   5. Comedy Columns (Two-Column Layout) (Parent container with child columns) ─────────────────── */
+.comedy-columns { /* .comedy-columns = parent flexbox that holds two columns */
+  display: flex; /* places child columns side-by-side horizontally */
+  justify-content: space-between; /* adds space between the two columns */
+  gap: 2rem; /* modern spacing unit (rem is fluid based on font size) */
+  margin: 2% auto; /* adds vertical spacing + centers horizontally */
+  max-width: 80%; /* replaces fixed px width with percentage */
+}
+
+/* Father → Child: .column inside .comedy-columns */
+.comedy-columns .column { /* .column = each individual card container */
+  flex: 1; /* each column expands equally to share available space */
+  min-width: 40%; /* replaces 300px → responsive minimum width */
+  background-color: #fff; /* sets card background to white */
+  border: 0.15rem solid #ccc; /* thin light-grey card border */
+  border-radius: 0.8rem; /* rounded corners for softer card design */
+  padding: 3%; /* replaces px padding with % */
+  box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.05); /* soft shadow to create depth */
+  box-sizing: border-box; /* ensures padding doesn’t increase card width */
+}
+
+/* Father → Child: headings inside .comedy-columns */
+.comedy-columns h3 { /* h3 = small subheading inside a comedy column card */
+  margin-top: 2vw; /* responsive top spacing */
+  margin-bottom: 0; /* no bottom spacing, keeps heading close to list */
+  font-size: 1.8vw; /* responsive font */
+  color: #222; /* dark grey for good contrast */
+}
+
+
+/* Father → Child: lists inside .comedy-columns */
+.comedy-columns ul { /* ul = unordered list INSIDE comedy column card */
+  margin: 1vw 0 2vw 2vw; /* top spacing, bottom spacing, slight left indent */
+  padding: 0; /* removes browser default padding */
+}
+.comedy-columns li { /* li = individual bullet items */
+  margin-bottom: 1vw; /* spacing between list items */
+}
+
+/* Father → Child: links inside .comedy-columns */
+.comedy-columns a { /* a = anchor tag inside these column cards */
+  color: #0066cc; /* blue link color for high visibility */
+  text-decoration: none; /* removes underline for cleaner design */
+}
+.comedy-columns a:hover { /* hover state for links inside these cards */
+  text-decoration: underline; /* underline on hover improves accessibility */
+}
+
+
+
+
+/*======================================================================================================================================================================================================================*/
+/* PAGE 2 – CULTURES PAGE */
+/* ───────────────────────────────────────────────────────────────
+   1. section.comedy-cultures 
+   Meaning: Styles the ENTIRE cultures page section (the big gradient block)
+──────────────────────────────────────────────────────────────── */
+section.comedy-cultures { /* selects a <section> with class "comedy-cultures" */
+  padding-bottom: 0%; /* removes space at the bottom of the section */
+  padding: 1%; /* adds general inner spacing so content isn’t touching edges */
+  padding-right: 0%; /* removes extra padding on right for flush alignment */
+  border-radius: 1%; /* gives the entire section slightly rounded corners */
+
+  background: linear-gradient(135deg, #fff7e6 0%); /* creates a warm→cool diagonal gradient for cultural vibe */
+
+  color: #222; /* sets default text to dark grey for readability */
+  box-shadow: 0 0 3vh rgba(0, 0, 0, 0.08); /* soft outer shadow for depth */
+}
+
+/* 2) Child heading: make it stand out on the new background */
+section.comedy-cultures > h2 { /* selects ONLY direct h2 inside .comedy-cultures */
+  margin: 0 0 1rem; /* no top margin, 1rem bottom spacing */
+  margin-top: 0rem; /* explicitly sets top margin to zero */
+  font-weight: 700; /* makes title bold/heavy */
+  color: #fafafa; /* high-contrast pale white text on gradient */
+  letter-spacing: 0.2vw; /* slightly increases spacing between letters */
+}
+
+/* Irish Feature Block styled like other cards */
+.culture-block-irish-feature { /* selects the “Irish feature block” card */
+  background-color: #000000; /* sets card background to pure black */
+  border: 0.15rem solid #000000; /* matching border to keep black theme */
+  border-radius: 0.8rem; /* soft rounded card corners */
+  padding: 1%; /* spacing around inner content */
+  padding-top: 0%; /* top padding removed for tighter alignment */
+  margin: 0 auto 2%; /* centers card + adds spacing below it */
+  width: 90%; /* card takes 90% of parent width */
+  box-sizing: border-box; /* includes padding in width calculation */
+
+  box-shadow: 0 0.2rem 0.8rem rgba(183, 12, 12, 0.05); /* subtle red-toned shadow for stylistic depth */
+}
+
+/* General culture block styled consistently */
+.culture-block { /* generic culture card */
+  flex: 0 0 90%; /* each card takes exactly 90% width inside scroll container */
+  background-color: #191818; /* dark grey card background */
+  border: 0.15rem solid #ccc; /* light grey card border */
+  border-radius: 0.8rem; /* rounded corners for smooth card look */
+  padding: 1%; /* inner card spacing */
+  padding-top: 0%; /* removes spacing at the top */
+  margin: 0 auto 2%; /* centers card horizontally + adds spacing below */
+  scroll-snap-align: start; /* ensures clean snapping during horizontal scroll */
+  box-sizing: border-box; /* prevents padding from expanding width */
+  box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.05); /* soft drop shadow */
+}
+
+/* Horizontal scroll container (Father element) */
+.culture-scroll { /* parent container that scrolls horizontally */
+  display: flex; /* arranges cards horizontally in one row */
+  overflow-x: auto; /* enables sideways scrolling */
+  gap: 2%; /* adds spacing between each card */
+  padding: 1vw; /* small responsive padding inside container */
+  scroll-snap-type: x mandatory; /* ensures cards snap cleanly into view */
+}
+
+/* ─────────────────────────────────────────────
+   2. Table Styling - Comedy History Table under this page
+   (Styling for headings and comedy history table)
+───────────────────────────────────────────── */
+/* Table heading above table */
+.table-heading { /* heading above the table */
+  text-align: center; /* center-aligns the text */
+  font-size: 2.5vw; /* responsive font size (larger on big screens) */
+  color: #333; /* dark grey heading for readability */
+  margin: 0 0 1rem 0; /* no top margin, 1rem bottom spacing */
+}
+
+
+/* Actual comedy history table */
+.comedy-history-table { /* entire table element */
+  width: 93%; /* takes up most of available width */
+  max-width: 90%; /* prevents table from stretching too wide */
+  border-collapse: collapse; /* removes default spacing between cells */
+  background-color: #f9f9f9; /* light background */
+  border: 0.15rem solid #ccc; /* outer border */
+  border-radius: 0.8rem; /* rounded corners around entire table */
+  margin: 0 auto 2%; /* centers table + adds spacing below */
+  overflow: hidden; /* ensures rounded corners are visible */
+  box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.05); /* table drop shadow */
+}
+
+
+/* Table cells */
+.comedy-history-table td { /* targets each table cell */
+  padding: 1rem; /* spacing inside each cell */
+  border-top: 0.1rem solid #ccc; /* creates horizontal lines between rows */
+  font-size: 1rem; /* slightly smaller text size */
+  color: #444; /* medium grey text for readability */
+  line-height: 1.4; /* more readable line spacing */
+}
+
+
+
+/*=======================================================================================================================================================================================================================*/
+/* PAGE 3 – SOCIAL MEDIA PAGE (Unified with other blocks)
+──────────────────────────────────────────────── */
+/* PAGE 3 – SOCIAL MEDIA PAGE (Unified with other blocks)
+──────────────────────────────────────────────── */
+section { /* selects ALL <section> elements */
+  max-width: 90%; /* section will not exceed 90% of the page width → prevents giant wide blocks */
+  margin: 2rem auto; /* 2rem top/bottom spacing + auto horizontal → centers the section */
+  padding: 2%; /* adds inner spacing so content doesn't touch the edges */
+  background-color: #f9f9f9; /* light grey background for clean card feel */
+  border: 0.15rem solid #ccc; /* soft grey border for consistent styling with other pages */
+  border-radius: 0.8rem; /* rounded corners for a polished card-like block */
+  box-shadow: 0 0.3rem 1rem rgba(0,0,0,0.05); /* subtle shadow for depth and elevation */
+  box-sizing: border-box; /* ensures padding/border included inside width → prevents layout breaking */
+}
+
+
+section h3 { /* selects all h3 headings that are INSIDE a section */
+  text-align: left; /* aligns heading text to the left */
+  font-size: 1.5vw; /* responsive font size → scales with screen width */
+  color: #222; /* dark grey for good readability */
+  margin-bottom: 0; /* removes bottom margin so heading sits tightly with content below */
+  padding-top: 1%; /* adds slight spacing above heading so it isn't stuck to the section border */
+}
+
+.video-container { /* selects divs with class="video-container" */
+  float: right; /* positions the video box on the RIGHT while text flows to the left */
+
+  width: 30vw; /* responsive width → replaces 300px; scales with screen width */
+
+  margin: 0 0 2% 3%; /* spacing: top 0, right 0, bottom 2%, left 3% → prevents overlap */
+
+  border: 0.15rem solid #ccc; /* light grey border to match sections */
+  border-radius: 0.8rem; /* smooth rounded corners of the container */
+
+  padding: 1%; /* spacing between container edge and the iframe */
+
+  background-color: #fff; /* white background to contrast video frame */
+
+  box-shadow: 0 0.3rem 1rem rgba(0,0,0,0.05); /* small shadow for depth */
+
+  aspect-ratio: 16 / 9; /* forces container to always maintain widescreen shape */
+  box-sizing: border-box; /* padding included inside width → keeps layout predictable */
+}
+
+/* Embedded video fills container neatly */
+.video-container iframe { /* selects iframe ONLY inside .video-container */
+  width: 100%; /* full width of parent → no black bars or gaps */
+  height: 100%; /* full height of parent → keeps correct aspect ratio */
+
+  border-radius: 0.5rem; /* slightly rounded corners for a modern embedded look */
+}
+
+
+
