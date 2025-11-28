@@ -7,7 +7,7 @@ body { /* <body>: the root container for ALL visible page content */
   background-color: #030303; /* sets black background of whole page */
   margin: 0; /* removes browser’s default outer margin */
   padding: 0; /* removes browser’s default padding */
-  color: #fff; /* make all text white */
+  color: #000000; /* make all text white */
   border-color: #444; /* keeps border styling consistent */
   line-height: 1.7; /* sets vertical spacing between lines of text */
 }
@@ -256,6 +256,7 @@ HOME PAGE LAYOUT
   font-size: 3vw; /* responsive font size (bigger on large screens) */
   margin: 0; /* removes extra spacing above/below */
   text-align: center; /* centers the title horizontally */
+   color: #121111; 
 }
 
 .joke-content { /* wrapper for text + image */
@@ -267,7 +268,7 @@ HOME PAGE LAYOUT
 .joke-text { /* container holding the setup + punchline */
   flex: 1 1 60%; /* takes majority of width but can shrink */
   min-width: 50%; /* never collapses below half width */
-  color: #fff; /* sets joke text to white */
+  color: #121111; /* sets joke text to white */
   text-align: left; /* aligns paragraphs to the left */
   padding: 2%; /* spacing around text */
 }
@@ -295,7 +296,7 @@ HOME PAGE LAYOUT
 
 /* ─────────────  IRISH COMEDY HISTORY (Two Columns) ──────────────────────────────── */
 
-/* ─────────────  IRISH COMEDY HISTORY (Two Columns) ──────────────────────────────── */
+
 
 /* Irish comedy history */
 .irish-comedy-history { /* full block wrapping both columns */
@@ -312,10 +313,12 @@ HOME PAGE LAYOUT
 .irish-comedy-history h2 { /* main title of this section */
   font-size: 3vw; /* large responsive heading size */
   text-align: center; /* centers the heading */
+  color: #121111; 
 }
 
 .irish-comedy-history h3 { /* subheadings inside article blocks */
   font-size: 2vw; /* smaller than h2 but still responsive */
+  color: #121111; 
 }
 
 .two-column-layout { /* container holding left + right column */
@@ -406,6 +409,18 @@ HOME PAGE LAYOUT
 }
 
 
+/* Force all links in the footer to be white */
+.site-footer a {
+  color: #fff !important; /* ensures links stay white */
+  text-decoration: none;  /* optional: remove underline */
+}
+
+/* Optional hover effect */
+.site-footer a:hover {
+  text-decoration: underline; /* underline on hover */
+  color: #ddd; /* slightly lighter shade for hover */
+}
+
 /* Main Footer Headings (if used)*/
 .site-footer h2 { /* larger footer heading */
   font-size: 2.5vw; /* responsive size */
@@ -426,6 +441,7 @@ HOME PAGE LAYOUT
   justify-content: center; /* centers icons */
   gap: 2vw; /* horizontal spacing between icons */
   flex-wrap: wrap; /* icons wrap neatly if screen feels tight */
+  
 }
 
 /* Social Media Icon Styling */
@@ -620,7 +636,7 @@ section.comedy-cultures > h2 { /* selects ONLY direct h2 inside .comedy-cultures
 
 /* Irish Feature Block styled like other cards */
 .culture-block-irish-feature { /* selects the “Irish feature block” card */
-  background-color: #000000; /* sets card background to pure black */
+  background-color: #f9f9f9;; /* sets card background to pure black */
   border: 0.15rem solid #000000; /* matching border to keep black theme */
   border-radius: 0.8rem; /* soft rounded card corners */
   padding: 1%; /* spacing around inner content */
@@ -635,7 +651,7 @@ section.comedy-cultures > h2 { /* selects ONLY direct h2 inside .comedy-cultures
 /* General culture block styled consistently */
 .culture-block { /* generic culture card */
   flex: 0 0 90%; /* each card takes exactly 90% width inside scroll container */
-  background-color: #191818; /* dark grey card background */
+  background-color: #f9f9f9;; /* dark grey card background */
   border: 0.15rem solid #ccc; /* light grey card border */
   border-radius: 0.8rem; /* rounded corners for smooth card look */
   padding: 1%; /* inner card spacing */
