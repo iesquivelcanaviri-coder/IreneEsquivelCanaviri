@@ -1,0 +1,442 @@
+/* ============================================================
+   GLOBAL STYLING (Applies to All Pages)
+===============================================================*/
+html, body { /* Targets the entire page to apply global layout and typography rules */
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling on all devices */
+  margin: 0; /* Removes default browser margin */
+  padding: 0; /* Removes default browser padding */
+  background-color: #030303; /* Sets a dark background theme for the site */
+  color: #ffffff; /* Sets default text color to white for contrast */
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; /* Defines a clean, modern font stack */
+  font-size: 1rem; /* Sets base font size using relative units for accessibility */
+  line-height: 1.6; /* Improves readability by increasing line spacing */
+}
+a { /* Styles all anchor (link) elements */
+  text-decoration: none; /* Removes underline from links for cleaner design */
+  color: inherit; /* Inherits text color from parent element */
+}
+ul { /* Styles all unordered lists */
+  list-style: none; /* Removes default bullet points */
+  padding: 0; /* Removes default left padding */
+}
+img { /* Styles all images */
+  max-width: 100%; /* Ensures images never overflow their container */
+  height: auto; /* Maintains correct image aspect ratio */
+  display: block; /* Removes inline spacing issues under images */
+}
+
+
+/* ============================================================
+   NAVIGATION
+===============================================================*/
+nav { /* Styles the main navigation bar container */
+  position: fixed; /* Keeps the navigation bar fixed at the top during scrolling */
+  top: 0; /* Positions the nav at the top of the viewport */
+  left: 0; /* Aligns the nav to the left edge of the viewport */
+  width: 100%; /* Makes the navigation span the full screen width */
+  background-color: #222; /* Sets a dark background for contrast */
+  border-bottom: 0.1rem solid #ffffff; /* Adds a visible separation line below nav */
+  padding: 0.5rem; /* Adds spacing inside the navigation bar */
+  text-align: center; /* Centers navigation links horizontally */
+  z-index: 10; /* Ensures nav appears above other page elements */
+  box-sizing: border-box; /* Includes padding and border in width calculations */
+}
+nav .logo img { /* Targets the logo image inside the navigation bar */
+  max-width: 7rem; /* Limits logo size to maintain layout balance */
+  float: left; /* Positions logo to the left of the navigation links */
+}
+nav ul { /* Styles the unordered list containing nav links */
+  display: flex; /* Uses flexbox for horizontal alignment */
+  justify-content: center; /* Centers navigation items */
+  gap: 1rem; /* Adds space between each navigation item */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  margin: 0; /* Removes default list margin */
+  padding: 0; /* Removes default list padding */
+}
+nav a { /* Styles individual navigation links */
+  padding: 0.5rem 1.5rem; /* Adds clickable space around links */
+  background-color: #222; /* Matches nav background */
+  border: 0.1rem solid #ffffff; /* Adds a border for button-like appearance */
+  border-radius: 0.5rem; /* Softens link corners */
+  font-size: 1.1rem; /* Increases text size for readability */
+  color: #ffffff; /* Sets link text color to white */
+}
+nav a:hover { /* Styles navigation links on hover */
+  background-color: #333; /* Darkens background to show interactivity */
+}
+nav a.active { /* Highlights the current active page link */
+  background-color: #444; /* Differentiates active link visually */
+  border-color: #66b3ff; /* Adds accent color to active link */
+}
+
+/* ============================================================
+   MOBILE NAVIGATION
+===============================================================*/
+@media (max-width: 600px) { /* Applies styles only on screens 600px wide or smaller (mobile devices) */
+  .nav-toggle-label { /* Targets the hamburger menu label */
+    display: flex; /* Makes the label visible on small screens */
+    cursor: pointer; /* Changes cursor to indicate clickable element */
+  }
+  nav .nav-links { /* Styles the navigation links container on mobile */
+    position: absolute; /* Positions dropdown menu relative to nav */
+    top: 100%; /* Places menu directly below the navigation bar */
+    left: 0; /* Aligns menu to the left edge */
+    right: 0; /* Aligns menu to the right edge */
+    background: #222; /* Matches navigation background color */
+    border-bottom: 0.1rem solid #ffffff; /* Adds a separator line under menu */
+    display: none; /* Hides menu by default */
+    flex-direction: column; /* Stacks navigation links vertically */
+    padding: 0.5rem 0; /* Adds vertical spacing inside menu */
+  }
+  nav .nav-links li { /* Styles individual navigation list items */
+    padding: 0.4rem 0; /* Adds spacing between links */
+  }
+  nav .nav-links a { /* Styles individual navigation links */
+    width: min(90%, 360px); /* Limits link width for readability on mobile */
+    margin: 0.35rem auto; /* Centers links horizontally */
+    text-align: center; /* Centers link text */
+  }
+  #nav-toggle:checked ~ .nav-links { /* Displays menu when hamburger checkbox is checked */
+    display: flex; /* Shows the menu using flexbox */
+  }
+  #nav-toggle:checked + .nav-toggle-label span { /* Animates hamburger icon when menu is open */
+    transform: rotate(45deg); /* Rotates middle line to form part of an X */
+  }
+  #nav-toggle:checked + .nav-toggle-label span::before { /* Targets top line of hamburger */
+    top: 0; /* Moves line to center */
+    transform: rotate(0deg); /* Resets rotation for X shape */
+  }
+  #nav-toggle:checked + .nav-toggle-label span::after { /* Targets bottom line of hamburger */
+    top: 0; /* Moves line to center */
+    transform: rotate(90deg); /* Rotates line to complete X shape */
+  }
+} /* Ends mobile media query */
+
+
+/* ============================================================
+   HEADER
+===============================================================*/ 
+
+header { /* Styles the main page header container */
+  width: 100%; /* Makes the header span the full width of the viewport */
+  margin-top: 8rem; /* Pushes header content below the fixed navigation bar */
+  text-align: center; /* Centers header text horizontally */
+}
+header h1 { /* Styles the main page heading */
+  font-size: clamp(2rem, 4vw, 3rem); /* Responsive font size that scales across devices */
+  margin: 0; /* Removes default heading margin */
+  font-style: italic; /* Applies italic styling for visual emphasis */
+}
+.tagline { /* Styles the subtitle text below the main heading */
+  font-size: clamp(1.2rem, 2.5vw, 2rem); /* Responsive font sizing for subtitle */
+  margin-top: 0.5rem; /* Adds spacing above the tagline */
+  font-style: italic; /* Matches heading style for consistency */
+}
+/* ============================================================
+   FOOTER
+===============================================================*/ 
+.site-footer { /* Styles the footer container */
+  border-top: 0.15rem solid #ccc; /* Visually separates footer from main content */
+  padding: 2rem 1rem; /* Adds internal spacing for readability */
+  text-align: center; /* Centers footer content */
+}
+.site-footer a:hover { /* Styles footer links on hover */
+  text-decoration: underline; /* Adds underline to indicate interactivity */
+}
+.footer-links { /* Styles the contact links section */
+  display: flex; /* Uses flexbox for layout */
+  flex-direction: column; /* Stacks contact links vertically */
+  gap: 0.5rem; /* Adds spacing between links */
+  font-size: 1.2rem; /* Increases font size for readability */
+}
+.social-links { /* Styles the social media icon container */
+  display: flex; /* Uses flexbox for horizontal layout */
+  justify-content: center; /* Centers icons horizontally */
+  gap: 1rem; /* Adds space between icons */
+  margin-top: 1rem; /* Adds spacing above the icon row */
+}
+.social-links img { /* Styles individual social media icons */
+  width: 40px; /* Sets consistent icon width */
+  height: 40px; /* Sets consistent icon height */
+}
+
+
+/* ============================================================
+   HOME PAGE LAYOUT — index.html
+===============================================================*/ 
+
+/* Main layout container */
+.page-layout { /* Main flex container holding sidebar and main content */
+  display: flex; /* Uses flexbox to place sidebar and content side by side */
+  width: 100%; /* Makes layout span full viewport width */
+  max-width: 100%; /* Prevents layout from exceeding viewport width */
+  padding: 1rem; /* Adds spacing around layout content */
+  gap: 1rem; /* Creates space between sidebar and content */
+  box-sizing: border-box; /* Includes padding in width calculations */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  min-width: 0; /* Prevents flex children from overflowing container */
+}
+/* 
+   SIDEBAR (15%)
+=================*/ 
+.sidebar { /* Styles the sidebar navigation/content panel */
+  flex: 0 0 15%; /* Fixes sidebar width to 15% */
+  max-width: 15%; /* Prevents sidebar from growing beyond 15% */
+  background-color: #222; /* Sets dark background for sidebar */
+  padding: 1rem; /* Adds internal spacing */
+  border: 0.15rem solid #ccc; /* Adds visible border */
+  border-radius: 0.5rem; /* Rounds sidebar corners */
+  height: fit-content; /* Sidebar height adapts to content */
+  box-sizing: border-box; /* Includes padding and border in width */
+}
+.sidebar h2,
+.sidebar h3 { /* Styles sidebar headings */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+}
+.sidebar ul { /* Styles sidebar lists */
+  margin: 0 0 1.5rem 0; /* Adds space below each list */
+  padding-left: 1rem; /* Indents list items slightly */
+}
+/* Hide sidebar on tablet/mobile */
+@media (max-width: 1024px) { /* Applies rules on tablets and smaller devices */
+  .sidebar { /* Targets sidebar on smaller screens */
+    display: none; /* Hides sidebar to improve mobile layout */
+  }
+}
+.visually-hidden { /* Utility class for accessibility-only content */
+  position: absolute; /* Removes element from normal flow */
+  left: -9999px; /* Moves element off-screen */
+  top: auto; /* Prevents vertical positioning issues */
+  width: 1px; /* Minimizes element width */
+  height: 1px; /* Minimizes element height */
+  overflow: hidden; /* Ensures hidden content is not visible */
+}
+/* 
+   MAIN CONTENT WRAPPER
+========================*/ 
+.content-wrapper { /* Container for main page content */
+  flex: 1; /* Fills remaining horizontal space */
+  min-width: 0; /* Allows container to shrink inside flexbox */
+  max-width: 100%; /* Prevents overflow beyond viewport */
+  display: flex; /* Uses flexbox for vertical stacking */
+  flex-direction: column; /* Stacks child sections vertically */
+  gap: 1rem; /* Adds spacing between sections */
+  box-sizing: border-box; /* Includes padding and borders in width */
+}
+/* Prevent children from overflowing */
+.content-wrapper * { /* Targets all children inside content wrapper */
+  max-width: 100%; /* Prevents child elements from overflowing */
+  box-sizing: border-box; /* Ensures consistent sizing */
+}
+/* Content sections */
+.joke-of-day,
+.irish-comedy-history,
+.general-comedy-history { /* Styles main content sections */
+  background-color: #222; /* Dark background for content blocks */
+  border: 0.15rem solid #ccc; /* Adds section borders */
+  border-radius: 1rem; /* Rounds section corners */
+  padding: 1rem; /* Adds internal spacing */
+  width: 100%; /* Ensures full-width sections */
+}
+/* Tablet/mobile: content becomes full width */
+@media (max-width: 1024px) { /* Applies rules on tablet/mobile screens */
+  .content-wrapper { /* Targets main content wrapper */
+    flex: 0 0 100%; /* Forces full-width layout */
+    max-width: 100%; /* Prevents horizontal overflow */
+  }
+}
+/* 
+   JOKE OF THE DAY
+===============*/ 
+.joke-of-day { /* Styles the joke of the day section */
+  border: 0.15rem solid #ffffff; /* Highlights section with white border */
+  border-radius: 1rem; /* Rounds corners */
+  padding: 1rem; /* Adds spacing inside section */
+  margin-bottom: 1rem; /* Adds space below section */
+}
+.joke-of-day::after { /* Clears floated content inside joke section */
+  content: ""; /* Required for clearfix technique */
+  display: block; /* Creates a block element */
+  clear: both; /* Clears floated image */
+}
+.joke-image { /* Styles image inside joke section */
+  float: right; /* Floats image to the right */
+  width: 30%; /* Sets relative width */
+  max-width: 250px; /* Prevents image from becoming too large */
+  margin-left: 1rem; /* Adds spacing from text */
+  margin-bottom: 1rem; /* Adds spacing below image */
+  border-radius: 0.5rem; /* Rounds image corners */
+}
+@media (max-width: 768px) { /* Applies rules on smaller screens */
+  .joke-image { /* Targets joke image on mobile */
+    float: none; /* Removes float */
+    margin: 1rem auto; /* Centers image */
+    width: 80%; /* Enlarges image for small screens */
+  }
+}
+/* 
+   IRISH COMEDY HISTORY
+==================*/ 
+.two-column-layout { /* Container for two-column content */
+  display: flex; /* Uses flexbox for column layout */
+  flex-wrap: wrap; /* Allows columns to wrap on small screens */
+  gap: 1rem; /* Adds spacing between columns */
+  max-width: 100%; /* Prevents overflow */
+}
+.column { /* Individual column styling */
+  flex: 1 1 300px; /* Responsive column sizing */
+  min-width: 0; /* Prevents flex overflow issues */
+}
+/* 
+   CAROUSEL
+=========*/ 
+.carousel-scroll { /* Horizontal scrolling container */
+  display: flex; /* Aligns cards horizontally */
+  gap: 1rem; /* Adds space between cards */
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Enables snap scrolling */
+  background-color: #222; /* Matches site theme */
+  scrollbar-color: #ffffff transparent; /* Custom scrollbar colors */
+  scrollbar-width: thin; /* Reduces scrollbar thickness */
+  max-width: 100%; /* Prevents overflow */
+}
+.fact-card { /* Individual carousel card */
+  min-width: 250px; /* Ensures readable card width */
+  background-color: #ffca2b; /* Highlights card with accent color */
+  padding: 1rem; /* Adds internal spacing */
+  border-radius: 1rem; /* Rounds card corners */
+  scroll-snap-align: center; /* Centers card during snap scrolling */
+}
+
+
+/* ============================================================
+   HISTORY PAGE (history.html)
+===============================================================*/ 
+.history-page { /* Main container for the history page content */
+  padding: 2rem; /* Adds spacing around the page content for readability */
+}
+.page-intro { /* Styles the introductory section at the top of the page */
+  background-color: #222; /* Applies dark background consistent with site theme */
+  border: 0.15rem solid #ccc; /* Adds a visible border around the intro section */
+  border-radius: 0.8rem; /* Rounds the corners slightly */
+  padding: 1rem; /* Adds internal spacing */
+  margin-bottom: 1rem; /* Separates intro from following content */
+}
+.period-section { /* Styles each historical period content block */
+  background-color: #222; /* Maintains consistent dark background */
+  border: 0.15rem solid #ccc; /* Adds border to define section boundaries */
+  border-radius: 0.8rem; /* Softens section corners */
+  padding: 2rem; /* Adds generous spacing inside sections */
+  margin-bottom: 2rem; /* Separates sections vertically */
+}
+.float-image { /* Styles images floated within text content */
+  float: right; /* Positions image to the right of text */
+  margin-left: 1rem; /* Adds spacing between image and text */
+  max-width: 30%; /* Limits image size to avoid overpowering text */
+  border-radius: 0.8rem; /* Rounds image corners */
+}
+/* Comedy Columns */
+.comedy-columns { /* Container for multi-column comedy content */
+  display: flex; /* Uses flexbox for column layout */
+  gap: 2rem; /* Adds space between columns */
+  flex-wrap: wrap; /* Allows columns to stack on smaller screens */
+}
+.comedy-columns .column { /* Styles individual column blocks */
+  flex: 1 1 45%; /* Creates responsive two-column layout */
+  background-color: #222; /* Applies consistent background color */
+  border: 0.15rem solid #ccc; /* Adds visible border */
+  border-radius: 0.8rem; /* Rounds column corners */
+  padding: 1rem; /* Adds internal spacing */
+}
+/* Table */
+.joke-section { /* Container for the joke comparison table */
+  background-color: #222; /* Matches site theme */
+  padding: 1.5rem; /* Adds spacing around the table */
+  border-radius: 1rem; /* Rounds section corners */
+}
+.joke-table { /* Styles the table element */
+  width: 100%; /* Makes table span full container width */
+  border-collapse: collapse; /* Removes gaps between table borders */
+}
+.joke-table th,
+.joke-table td { /* Styles table headers and cells */
+  border: 1px solid #555; /* Adds subtle borders to table cells */
+  padding: 1rem; /* Adds spacing inside table cells */
+}
+@media (max-width: 768px) { /* Applies styles on tablet and smaller screens */
+  .joke-table { /* Targets table on small screens */
+    display: block; /* Allows horizontal scrolling */
+    overflow-x: auto; /* Enables scrolling instead of breaking layout */
+  }
+}
+
+
+/* ============================================================
+   CULTURES PAGE (cultures.html)
+===============================================================*/
+.culture-page { /* Main container for the cultures page */
+  padding: 2rem; /* Adds spacing around page content for readability */
+}
+.culture-feature,
+.culture-block { /* Styles featured culture section and individual culture cards */
+  background-color: #222; /* Applies dark background consistent with site theme */
+  border: 0.15rem solid #ccc; /* Adds visible border to separate sections */
+  border-radius: 0.8rem; /* Rounds corners for modern appearance */
+  padding: 1rem; /* Adds internal spacing */
+  margin-bottom: 2rem; /* Creates vertical spacing between sections */
+}
+.culture-scroll { /* Horizontal scrolling container for culture blocks */
+  display: flex; /* Aligns culture blocks in a row */
+  overflow-x: auto; /* Enables horizontal scrolling when content overflows */
+  gap: 1rem; /* Adds space between culture blocks */
+  scroll-snap-type: x mandatory; /* Enables snap scrolling for better UX */
+}
+.culture-block { /* Individual culture card within the scroll container */
+  flex: 0 0 clamp(260px, 70vw, 500px); /* Sets responsive width that adapts to screen size */
+  scroll-snap-align: start; /* Aligns cards neatly when scrolling */
+}
+/* Table */ /* Section divider for table styles */
+.comedy-history-table { /* Styles the table displaying comedy history by country */
+  width: 100%; /* Makes table span full container width */
+  border-collapse: collapse; /* Merges table borders for clean layout */
+  border: 0.15rem solid #ccc; /* Adds outer border to table */
+}
+.comedy-history-table th,
+.comedy-history-table td { /* Styles table headers and data cells */
+  border: 1px solid #555; /* Adds internal cell borders */
+  padding: 1rem; /* Adds spacing inside cells for readability */
+}
+
+
+/* ============================================================
+   SOCIAL MEDIA PAGE (socialmedia.html)
+===============================================================*/
+.socialmedia-page { /* Styles the main container for the social media page */
+  padding: 2rem; /* Adds spacing around page content */
+}
+.content-section { /* Styles each content block within the page */
+  background-color: #222; /* Sets dark background consistent with site theme */
+  border: 0.15rem solid #ccc; /* Adds visible border around section */
+  border-radius: 0.8rem; /* Rounds section corners */
+  padding: 1.5rem; /* Adds internal spacing for readability */
+  margin-bottom: 2rem; /* Creates space between sections */
+}
+.video-container { /* Creates a responsive video wrapper */
+  position: relative; /* Establishes positioning context for iframe */
+  padding-bottom: 56.25%; /* Maintains 16:9 aspect ratio */
+  height: 0; /* Allows aspect ratio to control height */
+}
+.video-container iframe { /* Styles embedded video iframe */
+  position: absolute; /* Positions iframe relative to container */
+  top: 0; /* Aligns iframe to top of container */
+  left: 0; /* Aligns iframe to left of container */
+  width: 100%; /* Makes video scale to full container width */
+  height: 100%; /* Makes video scale to full container height */
+  border: 0; /* Removes default iframe border */
+}
+
+
+
+
+
